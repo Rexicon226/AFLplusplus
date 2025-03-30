@@ -584,6 +584,7 @@ fn setupLLVMTooling(
     cc_exe.addObject(common_obj);
     cc_exe.linkLibC();
 
+    b.installArtifact(cc_exe);
     const cc_exe_install = b.addInstallArtifact(cc_exe, .{});
     cc_exe_install.step.dependOn(&dynamic_list_install.step);
     cc_exe_install.step.dependOn(llvm_objs_step);
