@@ -506,6 +506,7 @@ fn setupLLVMTooling(
                 obj.getEmittedBin(),
                 NAME ++ if (MODE.len > 0) "-" ++ MODE else "" ++ ".o",
             );
+            b.installArtifact(obj);
             llvm_objs_step.dependOn(&obj_install.step);
         }
     }
